@@ -1,0 +1,23 @@
+#+begin_src bash
+npx truffle compile
+npx truffle migrate --network development
+
+npx truffle console --network development
+const p = await PraetorianPhoto.deployed();
+
+await web3.eth.getAccounts()
+web3.eth.defaultAccount = '0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1'
+p.safeMint("0x3E5e9111Ae8eB78Fe1CC3bb8915d5D461F3Ef9A9", 1)
+
+npx truffle migrate --network rinkeby  --reset
+npx truffle console --network rinkeby
+p.safeMint("0xCE27d8BCee45dB3E457EcF8629264Ca7893AAaAc", 76)
+
+
+npx truffle migrate --network polygon --dry-run  --reset
+npx truffle console --network polygon
+
+npx truffle run verify PraetorianPhoto --network polygon
+
+https://polygonscan.com/address/0x607612ADc3C59f6f2096758d8181F700288f230C#code
+#+end_src
